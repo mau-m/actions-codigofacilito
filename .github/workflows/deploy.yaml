@@ -6,8 +6,8 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
 
-    env:
-      NAME: CodigoFacilito
+    outputs:
+      salida: ${{ steps.step_1.outputs.my_variable }}
 
     steps:
       - name: Working dir
@@ -20,8 +20,11 @@ jobs:
   second_job:
     needs: first_job
     runs-on: ubuntu-latest
+
+    env:
+      SALIDA: ${{ needs.first_job.outputs.salida }}
+
     steps:
-      - name: Mostrar Rama
-        if: true
-        run: 'echo "Rama: ${{github.ref}}"'
+      - name: Mostrar Mensaje
+        run: echo "$SALIDA"
 
