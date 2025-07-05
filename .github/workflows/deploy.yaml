@@ -15,5 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hola Mundo
-        run: echo "¡Hola Mundo De Nuevo!"
+        if: true
+        run: echo "Rama: ${{github.ref}}"
 
