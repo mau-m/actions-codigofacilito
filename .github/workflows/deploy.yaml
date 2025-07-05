@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Mostrar Rama
-        run: echo "Rama: ${{github.ref}}"
+        run: 'echo "Rama: ${{github.ref}}"'
 
