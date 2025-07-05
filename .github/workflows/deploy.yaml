@@ -10,8 +10,14 @@ jobs:
       NAME: CodigoFacilito
 
     steps:
-      - name: Hola Mundo
-        run: echo "Hola $NAME"
+      - name: Working dir
+        run: ls -la
+
+      - name: Action
+        run: actions/checkout@v4
+
+      - name: Working dir after action
+        run: ls -la
 
   second_job:
     if: ${{ github.ref == 'refs/heads/main' }}
